@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block content %}
+    <h1>ESTE ES EL POST</h1>
+
+    {% for i in post %}
+
+        <br>
+        <li>{{ i.title }}</li>
+        <li>{{ i.subtitle }}</li>
+        <li>{{ i.category}}</li>
+
+    {%  empty %}
+    <h1>No hay registros</h1>
+
+    {% endfor %}
+
+    <br>
+    <h1> Ahora estamos en otro html </h1>
+    <h1> donde estamos poniendo otro contenido </h1>
+
+{% endblock %}
+
+
