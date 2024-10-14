@@ -5,12 +5,14 @@
 {% block content %}
     <h1>ESTE ES EL POST</h1>
 
-    {% for i in post %}
+    {% for i in posts %}
 
         <br>
         <li>{{ i.title }}</li>
         <li>{{ i.subtitle }}</li>
         <li>{{ i.category}}</li>
+        <img src="{{ posts.image.url }}" alt="Image the post">
+
 
     {%  empty %}
     <h1>No hay registros</h1>

@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block content %}
+
+<br>
+<li>{{ posts.title }}</li>
+<li>{{ posts.subtitle }}</li>
+<li>{{ posts.category }}</li>
+<br>
+<li>{{ posts.text }}</li>
+<img src="{{ posts.image.url }}" alt="Image the post">
+
+
+{% endblock %}
+
+
