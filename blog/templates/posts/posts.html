@@ -3,26 +3,23 @@
 {% load static %}
 
 {% block content %}
-    <h1>ESTE ES EL POST</h1>
+    <h1>TODOS LOS POSTS</h1>
 
+<div class="'container-fluid" style="margin: 200px;">
     {% for i in posts %}
 
-        <br>
-        <li>{{ i.title }}</li>
-        <li>{{ i.subtitle }}</li>
-        <li>{{ i.category}}</li>
-        <img src="{{ posts.image.url }}" alt="Image the post">
-
+    <div class="post">
+        <li class="title">{{ i.title }}</li>
+        <li class="subtitle">{{ i.subtitle }}</li>
+        <li class="category">{{ i.category }}</li>
+        <img class="post-image" src="{{ i.image.url }}" alt="Imagen del Post">
+        <a class="button" id="boton_post" href="{% url 'apps.posts:post_individual' i.id %}">Ingresá a este Post</a>
 
     {%  empty %}
     <h1>No hay registros</h1>
 
     {% endfor %}
-
-    <br>
-    <h1> Ahora estamos en otro html </h1>
-    <h1> donde estamos poniendo otro contenido </h1>
-
+</div>
 {% endblock %}
 
 

@@ -1,16 +1,16 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 
 {% load static %}
 
 {% block content %}
 
 <br>
-<li>{{ posts.title }}</li>
-<li>{{ posts.subtitle }}</li>
-<li>{{ posts.category }}</li>
+<li class="title">{{ posts.title }}</li>
+<li class="subtitle">{{ posts.subtitle }}</li>
+<li class="category">{{ posts.category }}</li>
 <br>
 <li>{{ posts.text }}</li>
-<img src="{{ posts.image.url }}" alt="Image the post">
+<img class="post-image" src="{{ posts.image.url }}" alt="Imagen del Post">
 
 
 {% endblock %}
