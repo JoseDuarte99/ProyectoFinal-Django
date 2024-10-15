@@ -28,6 +28,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'user.User'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'joseduarte99prog@gmail.com'
+EMAIL_HOST_PASSWORD = 'Programacion$G mail'
+
+SITE_NAME = 'Informatorio'
+
 
 # Application definition
 
@@ -41,6 +52,7 @@ INSTALLED_APPS = [
 
     'apps.post',
     'apps.contact',
+    'apps.user',
 ]
 
 MIDDLEWARE = [
