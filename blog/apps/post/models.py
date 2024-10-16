@@ -28,7 +28,7 @@ class Post(models.Model):
         return self.title
 
     def delete(self, using=None, keep_parents=False):
-        self.imagen.delete(self.imagen.name)
+        self.image.delete(self.image.name)
         super().delete()
 
 # Comment
