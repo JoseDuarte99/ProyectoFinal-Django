@@ -2,25 +2,50 @@
 
 {% load static %}
 
-
 {% block content %}
-    <h1>TODOS LOS POSTS</h1>
+<!-- Banner Starts Here -->
 
-<div class="'container-fluid" style="margin: 200px;">
-    {% for i in posts %}
-
-    <div class="post">
-        <li class="title">{{ i.title }}</li>
-        <li class="subtitle">{{ i.subtitle }}</li>
-        <li class="category">{{ i.category }}</li>
-        <img class="post-image" src="{{ i.image.url }}" alt="Imagen del Post">
-        <a class="button" id="boton_post" href="{% url 'apps.posts:post_individual' i.id %}">Ingresá a este Post</a>
-
-    {%  empty %}
-    <h1>No hay registros</h1>
-
-    {% endfor %}
+<div class="main-banner header-text">
+    <div class="container-fluid">
+        <div class="owl-banner owl-carousel">
+            {% for i in posts %}
+            <div class="item">
+                <img src="{{ i.image.url }}" alt="Imagen del Post">
+                <div class="item-content">
+                    <div class="main-content">
+                        <div class="meta-category">
+                            <span>{{ i.category }}</span>
+                        </div>
+                        <a href="{% url 'apps.posts:post_individual' i.id %}"><h4>{{ i.title }}</h4></a>
+                        <ul class="post-info">
+                            <li><a href="#">Admin</a></li>
+                            <li><a href="#">May 12, 2020</a></li>
+                            <li><a href="#">12 Comments</a></li>
+                        </ul>
+                    </div>
+                </div>        
+            </div>
+            {%  empty %}
+            <h1>No hay registros</h1>
+            {% endfor %}    
+        </div>
+    </div>
 </div>
+
+
+<!-- Banner Ends Here -->
 {% endblock %}
 
 
+
+
+
+
+
+    <!-- <div class="post">
+        <li class="title" >{{ i.title }}</li>
+        <li class="subtitle">{{ i.subtitle }}</li>
+        <li class="category">{{ i.category }}</li>
+        <a href="{% url 'apps.posts:post_individual' i.id %}">
+            <img class="post-image" src="{{ i.image.url }}" alt="Imagen del Post">
+        </a> -->

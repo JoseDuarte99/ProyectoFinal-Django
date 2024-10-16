@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from PIL import Image
 # Create your models here.
 
 
@@ -28,8 +29,17 @@ class Post(models.Model):
         return self.title
 
     def delete(self, using=None, keep_parents=False):
-        self.image.delete(self.image.name)
-        super().delete()
+        self.image.delete(save=False)  # Elimina la imagen del sistema de archivos
+        super().delete(using=using, keep_parents=keep_parents)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.image:
+            img = Image.open(self.image.path)
+            if img.height > 520 or img.width > 450:
+                output_size = (520, 450)
+                img.thumbnail(output_size)
+                img.save(self.image.path)
 
 # Comment
 class Comment(models.Model):
