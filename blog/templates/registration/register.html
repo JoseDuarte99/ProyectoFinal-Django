@@ -6,21 +6,45 @@
 
 {% block content %}
 
-<center>
-<form method="POST" enctype="multipart/form-data" style="margin-top: 300px; margin-bottom: 100px;">
-    <h1 class="hi">Registro de usuarios</h1>
-    <div class="messages">
-        {% for message in messages %}
-        <table{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</table >
-        {% endfor %}
+
+
+<section class="contact-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="down-contact">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="sidebar-item contact-form">
+                                <div class="content">
+                                    <center>
+                                        <form method="POST" enctype="multipart/form-data" style="margin-top: 300px; margin-bottom: 100px;">
+                                            <h1 class="hi">Registro de usuarios<br><br></h1>
+                                            <div class="messages">
+                                                {% for message in messages %}
+                                                <table{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</table >
+                                                {% endfor %}
+                                            </div>
+                                            {% csrf_token %}
+                                            <div class="container-fluid">
+                                                <table>{{ form }}</table>
+                                            </div>
+                                            <br><br>
+                                            <button type="submit" class="btn btn-success btn-lg px-3">Registrar</button>
+                                        </form>
+                                        </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    {% csrf_token %}
-    <div class="container-fluid">
-        <table>{{ form }}</table>
-    </div>
-    <br><br>
-    <button type="submit" class="btn btn-success btn-lg px-3">Registrar</button>
-</form>
-</center>
+</section>
+
+
+
+
 
 {% endblock %}

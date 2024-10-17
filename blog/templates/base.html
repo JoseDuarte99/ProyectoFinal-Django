@@ -35,19 +35,19 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
+              <li class="nav-item {% if request.path == '/' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'index' %}">Inicio
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
-              <li class="nav-item">
+              <li class="nav-item {% if request.path == '/post/' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'apps.posts:posts' %}">Articulos</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'index' %}">Categorias</a> <!-- CAMBIAR CUANDO ESTEN LISTO LOS FILTROS POR CATEGORIA -->
+              <li class="nav-item {% if request.path == '/post/category/' %}active{% endif %}">
+                <a class="nav-link" href="{% url 'apps.posts:category' %}">Categorias</a> <!-- CAMBIAR CUANDO ESTEN LISTO LOS FILTROS POR CATEGORIA -->
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'apps.contact:Contact' %}">Contacto</a>
+              <li class="nav-item {% if request.path == '/contact/' %}active{% endif %}">
+                <a class="nav-link" href="{% url 'apps.contact:contact' %}">Contacto</a>
               </li>
               <li class="nav-item">
                 {% if user.is_authenticated %}
