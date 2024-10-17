@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from PIL import Image
+from django.conf import settings
 # Create your models here.
 
 
@@ -43,9 +44,10 @@ class Post(models.Model):
 
 # Comment
 class Comment(models.Model):
-    text = models.TextField(null=False)
+    post = models.ForeignKey('post.Post', on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='comments', null=False, default=1)
+    text = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-    post = models.ForeignKey(Post, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.text
