@@ -12,7 +12,7 @@
                 <div class="col-lg-12">
                     <div class="text-content">
                         <h4>Contáctanos</h4>
-                        <h2>¡No dudes en comunicarte con nosotros!</h2>
+                        <h2>¡Gracias por contactarte!</h2>
                     </div>
                 </div>
             </div>
@@ -36,18 +36,7 @@
                                 <div class="content">
                                     <center>
                                         <form method="POST" style="margin: 100px;">
-                                            <h1>Formulario de Contacto <br><br></h1>
-                                            <br>
-                                            {% if messages %}
-                                                {% for messages in messages %}
-                                                    <div class="message {{ message.tags }}"> {{ message }} </div>
-                                                {% endfor %}
-                                            {% endif %}
-                                            <table>
-                                                {% csrf_token %}
-                                                {{ form }}
-                                            </table>
-                                            <input type="submit" value="Enviar">
+                                            <h1>¡Consulta enviada con exito!<br><br></h1>
                                         </form>
                                     </center>
                                 </div>

@@ -1,25 +1,29 @@
-from .models import Comment
 from django import forms
-from .models import Post
+from .models import Post, Comments
 from django.views.generic.edit import UpdateView
 
 
-class CreatePostForm(forms.ModelForm):
-    
-    class Meta():
-        model = Post
-        fields = ['title','subtitle','text','category','image']
+class CommentsForm(forms.ModelForm):
+    text = forms.CharField(
+        widget=forms.Textarea(attrs={'placeholder': 'Ingrese cometario'}),
+        label=''
+    )
 
-
-class UpdatePostForm(forms.ModelForm):
-    
     class Meta:
+        model = Comments
+
+        fields = ['text']
+
+
+class CreatePostForm(forms.ModelForm):
+
+    class Meta():
         model = Post
         fields = ['title', 'subtitle', 'text', 'category', 'image']
 
 
-class CommentForm(forms.ModelForm):
-    
+class UpdatePostForm(forms.ModelForm):
+
     class Meta:
-        model = Comment
-        fields = ['text']
+        model = Post
+        fields = ['title', 'subtitle', 'text', 'category', 'image']

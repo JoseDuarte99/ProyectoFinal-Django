@@ -1,3 +1,41 @@
+
+.user-profile-picture {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.profile-container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+}
+.profile-header {
+	text-align: center;
+	margin-bottom: 30px;
+}
+.profile-header img {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	margin-bottom: 20px;
+}
+.profile-details {
+	background-color: #f7f7f7;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+}
+.profile-details dt {
+	font-weight: bold;
+}
+.profile-details dd {
+	margin-bottom: 10px;
+}
+
+
+
 /* 
 
 TemplateMo 551 Stand Blog
@@ -853,8 +891,13 @@ footer p a:hover {
 
 .contact-us .down-contact,
 .contact-us #map {
-	margin-top: 80px;
+	margin-top: 50px;
 }
+
+.contact-us .login-register{
+	margin-top: -300px;
+}
+
 
 .contact-us .sidebar-heading h2 {
 	font-size: 18px;
@@ -872,7 +915,6 @@ footer p a:hover {
 	height: 46px;
 	border: 1px solid #eee;
 	font-size: 13px;
-	text-transform: uppercase;
 	font-weight: 500;
 	color: #7a7a7a;
 	outline: none;

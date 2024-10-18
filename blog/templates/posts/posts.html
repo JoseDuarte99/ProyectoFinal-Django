@@ -19,70 +19,73 @@
         </div>
     </section>
 </div>
+<!-- Banner End Here -->
 
 
-<section class="blog-posts grid-system">
-    <div class="container">
-    <div class="row">
-        <div class="col-lg-8">
-        <div class="all-blog-posts">
-            <div class="row">
-                {% for i in posts %}
-                    <div class="col-lg-6">
-                        <div class="blog-post">
-                        <div class="blog-thumb">
-                            <img src="{{ i.image.url }}" alt="Imagen del Post">
-                        </div>
-                        <div class="down-content">
-                            <span>{{ i.category }}</span>
-                            <a href="{% url 'apps.posts:post_individual' i.id %}"><h4>{{ i.title }}</h4></a>
-                            <ul class="post-info">
-                            <li><a href="#">Admin</a></li>
-                            <li><a href="#">May 31, 2020</a></li>
-                            <li><a href="#">12 Comments</a></li>
-                            </ul>
-                            <p>{{ i.text }}</p>
-                            <div class="post-options">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-tags"></i></li>
-                                    <li><a href="#">Best Templates</a>,</li>
-                                    <li><a href="#">TemplateMo</a></li>
+{% if posts in posts %}
+
+    <section class="blog-posts grid-system">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+            <div class="all-blog-posts">
+                <div class="row">
+                    {% for i in posts %}
+                        <div class="col-lg-6">
+                            <div class="blog-post">
+                            <div class="blog-thumb">
+                                <img src="{{ i.image.url }}" alt="Imagen del Post">
+                            </div>
+                            <div class="down-content">
+                                <span>{{ i.category }}</span>
+                                <a href="{% url 'apps.posts:post_individual' i.id %}"><h4>{{ i.title }}</h4></a>
+                                <ul class="post-info">
+                                <li><a href="#">Admin</a></li>
+                                <li><a href="#">May 31, 2020</a></li>
+                                <li><a href="#">12 Comments</a></li>
                                 </ul>
+                                <p>{{ i.text }}</p>
+                                <div class="post-options">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                    <ul class="post-tags">
+                                        <li><i class="fa fa-tags"></i></li>
+                                        <li><a href="#">Best Templates</a>,</li>
+                                        <li><a href="#">TemplateMo</a></li>
+                                    </ul>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
                             </div>
                         </div>
-                        </div>
+                    {% endfor %}
+                    <div class="col-lg-12">
+                        <ul class="page-numbers">
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                        </ul>
                     </div>
-                {%  empty %}
-                <h1>No hay registros</h1>
-                {% endfor %}    
-                <div class="col-lg-12">
-                    <ul class="page-numbers">
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% else %}
+
+<section class="blog-posts grid-system">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="all-blog-posts">
+                    <center><h1>NO HAY ARTICULOS</h1></center>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+{% endif %}
 {% endblock %}
-
-
-
-
-
-
-
-    <!-- <div class="post">
-        <li class="title" >{{ i.title }}</li>
-        <li class="subtitle">{{ i.subtitle }}</li>
-        <li class="category">{{ i.category }}</li>
-        <a href="{% url 'apps.posts:post_individual' i.id %}">
-            <img class="post-image" src="{{ i.image.url }}" alt="Imagen del Post">
-        </a> -->

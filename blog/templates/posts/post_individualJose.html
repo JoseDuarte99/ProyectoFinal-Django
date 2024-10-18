@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- Banner Starts Here -->
+<div class="heading-page header-text">
+  <section class="page-heading">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="text-content">
+                      <h4>Importante</h4>
+                      <h2>¡La seguridad!</h2>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+</div>
+
+<!-- Banner Ends Here -->
+<section class="blog-posts grid-system">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="all-blog-posts">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="blog-post">
+                  <div class="blog-thumb">
+                    <img class="post-image" src="{{ posts.image.url }}" alt="Imagen del Post">
+                  </div>
+                  <div class="down-content">
+                    <span>{{ posts.category }}</span>
+                    <h4>{{ posts.title }}</h4></a>
+                    <ul class="post-info">
+                      <li><a href="#">Admin</a></li>
+                      <li><a href="#">May 12, 2020</a></li>
+                      <li><a href="#">10 Comments</a></li>
+                    </ul>
+                    <p>{{ posts.text }}</p>
+                    <div class="post-options">
+                      <div class="row">
+                        <div class="col-6">
+                          <ul class="post-tags">
+                            <li><i class="fa fa-tags"></i></li>
+                            <li><a href="#">Best Templates</a>,</li>
+                            <li><a href="#">TemplateMo</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-6">
+                          <ul class="post-share">
+                            <li><i class="fa fa-share-alt"></i></li>
+                            <li><a href="#">Facebook</a>,</li>
+                            <li><a href="#"> Twitter</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+<a id="comentario"></a>
+<div class="container-fluid" style="margin-bottom: 100px;">
+    <form method="POST" style="margin-bottom: 100px; margin-top: 100px;">
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+            <h2>Deja tu comentario</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Comentar">
+            </form>
+        {% else %}
+            <h2>Debes iniciar sesión o registrarte para comentar</h2>
+            <a class="btn btn-success btn-lg" href="{% url 'apps.usuario:login' %}?next={{ request.path }}#comentario">Iniciar sesión</a>
+            <input type="hidden" name="next" value="{{ request.path }}">
+        {% endif %}
+    </form>
+</div>
+
+
+
+{% endblock %}
+
+
